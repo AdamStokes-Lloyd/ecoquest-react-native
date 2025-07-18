@@ -11,9 +11,8 @@ export default function WeatherScreen() {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`
-        );
+        const url = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&q=${CITY}&units=metric`;
+        const res = await fetch(url);
         const data = await res.json();
         setWeather(data);
       } catch (err) {
@@ -35,12 +34,15 @@ export default function WeatherScreen() {
   }
 
   if (!weather || weather.cod !== 200) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.error}>Could not load weather data.</Text>
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <Text style={styles.error}>Could not load weather data.</Text>
+      <Text style={{ fontSize: 12, marginTop: 10, color: '#888' }}>
+        {JSON.stringify(weather)}
+      </Text>
+    </View>
+  );
+}
 
   return (
     <View style={styles.container}>
