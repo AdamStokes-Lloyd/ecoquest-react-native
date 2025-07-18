@@ -18,6 +18,7 @@ export default function HomeScreen() {
       <Link href="/characters" style={styles.link}>🦎 See Your Friends</Link>
       <Link href="/leaderboard" style={styles.link}>🏆 Leaderboard</Link>
       <Link href="/chatbot" style={styles.link}>🤖 Ask the Eco Chatbot</Link>
+      <Link href="/weather" style={styles.link}>⛅ Check the Weather</Link>
     </View>
   );
 }
